@@ -514,7 +514,6 @@ p:last-child{ margin-bottom:0; }
 @media (max-width:980px){
   .nav{ padding:8px 8px 8px 22px; }
   .nav__toggle{ display:flex; }
-  .nav__grid{ display:none; }
   .nav__collapse{
     position:fixed; inset:0 0 0 auto; width:min(86vw,360px); display:flex; flex-direction:column; align-items:stretch;
     justify-content:flex-start; gap:4px; background:#fff; padding:90px 26px 30px; transform:translateX(100%);
