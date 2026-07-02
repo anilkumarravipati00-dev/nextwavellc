@@ -348,6 +348,9 @@ p:last-child{ margin-bottom:0; }
 .svc__icon svg{ width:26px; height:26px; fill:none; stroke:var(--azure); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; transition:stroke .25s; }
 .svc:hover .svc__icon svg{ stroke:#fff; }
 .svc p{ font-size:15.5px; }
+.svc__list{ display:flex; flex-direction:column; gap:2px; }
+.svc__list li{ font-size:14.5px; color:var(--muted); padding:6px 0 6px 18px; position:relative; }
+.svc__list li::before{ content:""; position:absolute; left:0; top:12px; width:6px; height:6px; border-radius:2px; background:var(--sky); }
 
 /* ====================================================================
    TECH EXPERTISE (dark)
