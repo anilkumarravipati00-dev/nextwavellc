@@ -336,7 +336,7 @@ p:last-child{ margin-bottom:0; }
 /* ====================================================================
    SERVICES
    ==================================================================== */
-.services{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.services{ grid-template-columns:repeat(5,1fr); }
 .svc{
   background:#fff; border:1px solid var(--line); border-radius:var(--r);
   padding:clamp(24px,2.4vw,32px); transition:transform .25s ease, box-shadow .25s ease, border-color .25s;
