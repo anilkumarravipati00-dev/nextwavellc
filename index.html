@@ -703,44 +703,49 @@
       </ul>
     </div>
 
-    <div class="final__card reveal">
-      <form class="cform" id="contactForm" novalidate>
-        <h3 class="h4 cform__title">Schedule a consultation</h3>
-        <div class="cform__row">
-          <label class="field">
-            <span>Full name</span>
-            <input type="text" name="name" required autocomplete="name" placeholder="Your name" />
-          </label>
-          <label class="field">
-            <span>Work email</span>
-            <input type="email" name="email" required autocomplete="email" placeholder="you@company.com" />
-          </label>
-        </div>
-        <div class="cform__row">
-          <label class="field">
-            <span>Company</span>
-            <input type="text" name="company" autocomplete="organisation" placeholder="Company name" />
-          </label>
-          <label class="field">
-            <span>I'm interested in</span>
-            <select name="interest">
-              <option>Technology consulting</option>
-              <option>Software development</option>
-              <option>IT staffing &amp; talent</option>
-              <option>Project support</option>
-              <option>Others</option>
-            </select>
-          </label>
-        </div>
-        <label class="field">
-          <span>How can we help?</span>
-          <textarea name="message" rows="4" placeholder="Tell us about your goals, role or project…"></textarea>
-        </label>
-        <button type="submit" class="btn btn--primary btn--lg btn--block">Schedule a Consultation</button>
-        <p class="cform__ok" id="formOk" hidden>Thanks — your request has been noted. A NextWave specialist will follow up by email.</p>
-      </form>
+   <div class="final__card reveal">
+  <form class="cform" id="contactForm">
+    <input type="hidden" name="access_key" value="09bf0752-7289-4d9f-9ffc-52bc471b8acc">
+    <input type="hidden" name="subject" value="New consultation request — NextWave website">
+    <input type="hidden" name="from_name" value="NextWave Services Website">
+    <input type="checkbox" name="botcheck" style="display:none">
+
+    <h3 class="h4 cform__title">Schedule a consultation</h3>
+    <div class="cform__row">
+      <label class="field">
+        <span>Full name</span>
+        <input type="text" name="name" required autocomplete="name" placeholder="Your name" />
+      </label>
+      <label class="field">
+        <span>Work email</span>
+        <input type="email" name="email" required autocomplete="email" placeholder="you@company.com" />
+      </label>
     </div>
-  </div>
+    <div class="cform__row">
+      <label class="field">
+        <span>Company</span>
+        <input type="text" name="company" autocomplete="organisation" placeholder="Company name" />
+      </label>
+      <label class="field">
+        <span>I'm interested in</span>
+        <select name="interest">
+          <option>Technology consulting</option>
+          <option>Software development</option>
+          <option>IT staffing &amp; talent</option>
+          <option>Project support</option>
+          <option>Others</option>
+        </select>
+      </label>
+    </div>
+    <label class="field">
+      <span>How can we help?</span>
+      <textarea name="message" rows="4" placeholder="Tell us about your goals, role or project…"></textarea>
+    </label>
+
+    <button type="submit" class="btn btn--primary btn--lg btn--block">Schedule a Consultation</button>
+    <p class="cform__ok" id="formOk" hidden>Thanks — your request has been noted. A NextWave specialist will follow up by email.</p>
+  </form>
+</div>
 </section>
 
 </main>
