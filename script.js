@@ -146,14 +146,17 @@
   }
 
   /* ---------- contact form (front-end only) ---------- */
+ /* ---------- contact form (Web3Forms submission) ---------- */
   const form = $('#contactForm');
   const ok = $('#formOk');
   if (form) {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const name = form.name.value.trim();
       const email = form.email.value.trim();
       const valid = name && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
       if (!valid) {
         const bad = !name ? form.name : form.email;
         bad.focus();
@@ -161,9 +164,35 @@
         bad.addEventListener('input', () => { bad.style.borderColor = ''; }, { once: true });
         return;
       }
-      ok.hidden = false;
-      form.querySelector('button[type="submit"]').textContent = 'Request received ✓';
-      form.querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; });
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const formData = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          ok.hidden = false;
+          submitBtn.textContent = 'Request received ✓';
+          form.querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; });
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        ok.hidden = false;
+        ok.textContent = 'Something went wrong — please email us directly at info@nextwavesvcs.com.';
+        ok.style.color = '#e0564f';
+      }
     });
   }
 
